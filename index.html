@@ -193,6 +193,17 @@
         }
         .swipe-hint-left { animation: swipeHint 1.8s infinite ease-in-out; }
         .swipe-hint-right { animation: swipeHintRight 1.8s infinite ease-in-out; }
+
+        /* Premium Shimmer skeleton effect for instant visual transitions */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .shimmer-bg {
+            background: linear-gradient(90deg, #041d15 25%, #124b3a 50%, #041d15 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -315,9 +326,14 @@
                             <!-- Image side -->
                             <div class="relative h-[250px] sm:h-[350px] md:h-[450px] w-full rounded-xl overflow-hidden group">
                                 <div class="absolute inset-0 border-2 border-gold/30 z-20 m-4 rounded-lg pointer-events-none transition-all group-hover:m-2 group-hover:border-gold/60"></div>
+                                
+                                <!-- Hardware-accelerated Shimmer Loading state overlay -->
+                                <div id="floor-img-shimmer" class="absolute inset-0 shimmer-bg z-10 transition-opacity duration-300 opacity-0 rounded-lg"></div>
+                                
                                 <img id="floor-img" src="Gemini_Generated_Image_s0r0v6s0r0v6s0r0.png" 
                                      class="absolute inset-0 w-full h-full object-cover shadow-2xl transition duration-700 group-hover:scale-105" 
                                      alt="Floor Concept"
+                                     onload="onFloorImageLoad()"
                                      onerror="handleFloorFallback(this)">
                                 <div class="absolute inset-0 bg-gradient-to-t from-emerald-deep/80 to-transparent z-10"></div>
                                 <div class="absolute bottom-6 left-6 z-20">
@@ -366,7 +382,7 @@
                         3D LED & <span class="text-gold font-light italic">Хөгжлийн Шинэ Цэг</span>
                     </h2>
                     <p class="text-gray-900 mb-6 md:mb-8 font-medium leading-relaxed text-sm md:text-base">
-                        Монгол Улсад анх удаа гадна фасадны 3D LED дэлгэцийг суурилуулж байгаа нь брэндүүдийн сурталчилгааны урсгалыг эрс нэмэгдүүлж, хэрэглэгчдийн сонирхлыг татах хотын хамгийн алдартай шинэ цэг (Landmark) болно.
+                        Монгол Улсанд анх удаа гадна фасадны 3D LED дэлгэцийг суурилуулж байгаа нь брэндүүдийн сурталчилгааны урсгалыг эрс нэмэгдүүлж, хэрэглэгчдийн сонирхлыг татах хотын хамгийн алдартай шинэ цэг (Landmark) болно.
                     </p>
                     
                     <!-- HRV System Feature Grid -->
@@ -643,6 +659,30 @@
         const floorsOrder = ['B1', 1, 2, 3, 4, 5, 6, 7, 8];
         let currentFloorId = 1;
 
+        // --- IMAGE CACHING & PRELOADING CONTROLLER (IT MASTERCLASS) ---
+        // Preloading images in background prevents ugly lag when clicking through floors
+        const imageCache = {};
+
+        function preloadAllImages() {
+            // Preload structural floor concepts
+            Object.keys(floorData).forEach(key => {
+                const path = getImagePath(floorData[key].img);
+                const img = new Image();
+                img.src = path;
+                imageCache[floorData[key].img] = img;
+            });
+
+            // Preload structural floor blueprints
+            Object.keys(planImages).forEach(key => {
+                const path = getImagePath(planImages[key]);
+                const img = new Image();
+                img.src = path;
+                imageCache[planImages[key]] = img;
+            });
+        }
+
+        // --- END PRELOADING CONTROLLER ---
+
         // Initialize Floor Selection Buttons inside side layout
         function renderFloorButtons() {
             const container = document.getElementById('floor-buttons-container');
@@ -679,6 +719,13 @@
                 activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
 
+            // Show beautiful shimmering skeleton loader before changing image
+            const shimmer = document.getElementById('floor-img-shimmer');
+            if (shimmer) {
+                shimmer.classList.remove('opacity-0');
+                shimmer.classList.add('opacity-100');
+            }
+
             // Content Update with Slide/Fade Transition Effect
             const display = document.getElementById('floor-display');
             display.style.opacity = '0';
@@ -704,6 +751,15 @@
                 display.style.opacity = '1';
                 display.style.transform = 'translateY(0)';
             }, 250);
+        }
+
+        // When the live floor image is loaded, instantly fade out shimmer skeleton
+        function onFloorImageLoad() {
+            const shimmer = document.getElementById('floor-img-shimmer');
+            if (shimmer) {
+                shimmer.classList.remove('opacity-100');
+                shimmer.classList.add('opacity-0');
+            }
         }
 
         // Return appropriate image path based on Github Config
@@ -771,6 +827,7 @@
 
         function handleFloorFallback(img) {
             img.src = "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&q=80&w=1200";
+            onFloorImageLoad(); // Keep logic running cleanly
         }
 
         function scrollToId(id) {
@@ -945,10 +1002,12 @@
 
         // Start initialization on page load
         window.onload = () => {
+            preloadAllImages(); // Preload all 3D assets & blueprints into memory cache for 0ms transitions
             renderFloorButtons();
             initChart();
             updateCalculator();
             initSwipeGestures();
+            updateFloor(1); // Set 1F as default live floor
         };
     </script>
 </body>
