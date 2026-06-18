@@ -360,7 +360,7 @@
                         <div class="bg-white p-8 border border-gray-200 rounded-xl shadow-lg relative overflow-hidden group">
                             <div class="absolute top-0 left-0 w-full h-1.5 bg-gold"></div>
                             <span class="block text-gray-600 font-bold text-[10px] tracking-widest uppercase mb-2">Өнөөдрийн онцгой үнэ / м²</span>
-                            <span class="text-3xl font-serif text-emerald-deep font-bold">5.0 сая ₮</span>
+                            <span class="text-3xl font-serif text-emerald-deep font-bold">6.0 сая ₮</span>
                             <span class="block text-gray-500 text-sm mt-3 font-medium line-through decoration-red-500/50">Үндсэн үнэ: 6.5 сая ₮</span>
                         </div>
                         <!-- Dark Card -->
@@ -419,11 +419,11 @@
                     <div class="mt-10 space-y-4">
                         <div class="flex justify-between items-center py-3 border-b border-gray-200">
                             <span class="text-gray-700 font-medium tracking-wide">Нийт хөрөнгө оруулалт (1,000 м²)</span>
-                            <span class="font-bold text-emerald-deep text-lg">5.0 Тэрбум ₮</span>
+                            <span class="font-bold text-emerald-deep text-lg">6.0 Тэрбум ₮</span>
                         </div>
                         <div class="flex justify-between items-center py-3 border-b border-gray-200">
                             <span class="text-gray-700 font-medium tracking-wide">Үнэлгээний өсөлт (Ашиглалтад ороход)</span>
-                            <span class="font-bold text-gold text-lg">+3.0 Тэрбум ₮</span>
+                            <span class="font-bold text-gold text-lg">+2.0 Тэрбум ₮</span>
                         </div>
                         <div class="flex justify-between items-center py-3 bg-emerald-deep/5 px-4 rounded-lg">
                             <span class="text-emerald-deep font-bold tracking-wide">Сарын түрээсийн боломжит орлого</span>
@@ -587,7 +587,7 @@
             8: {
                 id: 8, title: "Event Hall", short: "Арга хэмжээ",
                 desc: "Төрөл бүрийн бизнес, корпорацийн арга хэмжээ, хүлээн авалт зохион байгуулах орчин үеийн тоноглол бүхий дээд зэрэглэлийн танхим. Сүрлэг тоонот шийдэл бүхий заал.",
-                img: "Gemini_Generated_Image_lebla9lebla9lebl.png",
+                img: "Gemini_Generated_Image_toqcsgtoqcsgtoqc.png",
                 features: ["Corporate Events", "Luxury Banquets", "Advanced AV & Traditional Tech"]
             }
         };
@@ -740,8 +740,8 @@
             sliderVal.innerText = `${area} м²`;
             
             // Calculations
-            const investmentAmount = area * 5.0; // 5.0M MNT per m2
-            const appreciationValue = area * 3.0; // 3.0M MNT appreciation per m2 (from 5M to 8M)
+            const investmentAmount = area * 6.0; // 6.0M MNT per m2
+            const appreciationValue = area * 2.0; // 2.0M MNT appreciation per m2 (from 6M to 8M)
             const annualRentalIncome = area * 0.08 * 12; // 80k per m2 monthly, converted to millions
             
             calcInvestment.innerText = `${investmentAmount.toFixed(1)} Сая ₮`;
@@ -773,7 +773,7 @@
                     labels: ['Өнөөдрийн үнэ', 'Ашиглалтад ороход'],
                     datasets: [{
                         label: 'Сая ₮ / м²',
-                        data: [5.0, 8.0],
+                        data: [6.0, 8.0],
                         backgroundColor: [gradCurrent, gradFuture],
                         borderRadius: 8,
                         barThickness: 70,
