@@ -176,10 +176,16 @@
                 <a href="#investment" class="hover:text-gold transition duration-300">Хөрөнгө оруулалт</a>
                 <a href="#contact" class="hover:text-gold transition duration-300">Холбогдох</a>
             </div>
-            <a href="tel:88243812" class="group relative px-6 py-2 md:px-8 md:py-3 bg-transparent overflow-hidden border border-gold/50 text-gold text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all hover:border-gold">
-                <div class="absolute inset-0 w-0 bg-gold transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                <span class="relative group-hover:text-emerald-deep">8824-3812</span>
-            </a>
+            <div class="flex gap-2">
+                <a href="tel:88243812" class="group relative px-4 py-2 md:px-6 md:py-3 bg-transparent overflow-hidden border border-gold/50 text-gold text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all hover:border-gold">
+                    <div class="absolute inset-0 w-0 bg-gold transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                    <span class="relative group-hover:text-emerald-deep">8824-3812</span>
+                </a>
+                <a href="tel:86309767" class="group relative px-4 py-2 md:px-6 md:py-3 bg-transparent overflow-hidden border border-gold/50 text-gold text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all hover:border-gold">
+                    <div class="absolute inset-0 w-0 bg-gold transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                    <span class="relative group-hover:text-emerald-deep">8630-9767</span>
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -259,7 +265,7 @@
                             <!-- Image side -->
                             <div class="relative h-[350px] md:h-[450px] w-full rounded-xl overflow-hidden group">
                                 <div class="absolute inset-0 border-2 border-gold/30 z-20 m-4 rounded-lg pointer-events-none transition-all group-hover:m-2 group-hover:border-gold/60"></div>
-                                <img id="floor-img" src="28a6bcec-b4a7-4efc-b89a-71d21a0feb8f.jpg" 
+                                <img id="floor-img" src="Gemini_Generated_Image_s0r0v6s0r0v6s0r0.png" 
                                      class="absolute inset-0 w-full h-full object-cover shadow-2xl transition duration-700 group-hover:scale-105" 
                                      alt="Floor Concept"
                                      onerror="handleFloorFallback(this)">
@@ -326,7 +332,7 @@
                         <div class="grid grid-cols-2 gap-4 text-xs font-bold text-emerald-deep">
                             <div class="flex items-center gap-2">✔ Эрчим хүчний хэмнэлттэй</div>
                             <div class="flex items-center gap-2">✔ Тоос, бактерийн шүүлтүүр</div>
-                            <div class="flex items-center gap-2">✔ Цэвэр агаар сэргээх технология</div>
+                            <div class="flex items-center gap-2">✔ Цэвэр агаар сэргээх технологи</div>
                             <div class="flex items-center gap-2">✔ Дулаан сэргээх систем</div>
                         </div>
                     </div>
@@ -454,7 +460,7 @@
                     <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-tight">
                         Тансаг хэрэглээний <br><span class="text-gold italic font-light">Шинэ Эрин</span>
                     </h2>
-                    <p class="text-white/70 mb-12 font-light max-w-md text-lg leading-relaxed">Төслийн талбай дээр ирж биеэр танилцах, хөрөнгө оруулалтын дэлгэрэнгүй мэдээлэл авахыг хүсвэл манай зөвлөхүүдтэй холбогдоно уу.</p>
+                    <p class="text-white/70 mb-12 font-light max-w-md text-lg leading-relaxed">Төслийн талбай дээр ирж биеэр танилцах, хөрөнго оруулалтын дэлгэрэнгүй мэдээлэл авахыг хүсвэл манай зөвлөхүүдтэй холбогдоно уу.</p>
                     
                     <div class="flex flex-col gap-8">
                         <div class="flex items-center gap-6 group cursor-pointer" onclick="window.location.href='tel:88243812'">
@@ -511,12 +517,11 @@
          * GitHub дээр өөрийн зурагнуудаа байршуулсны дараа та доорх хаягийг сольж,
          * өөрийн репозитороос шууд зурагнуудаа татах боломжтой болно.
          * 
-         * Жишээ нь:
          * const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/username/repository/main/";
          ************************************************************************/
         const GITHUB_RAW_BASE = ""; // Хоосон үлдээвэл дотоод хаягаар (1.jpg, 2.jpg...) шууд ачаална.
 
-        // High quality mapped floor blueprints matching B1-8F specs precisely
+        // High quality mapped floor blueprints matching B1-8F specs precisely from PLAN (1) (2).pdf
         const planImages = {
             'B1': '1.jpg',
             1: '2.jpg',
@@ -529,61 +534,61 @@
             8: '9.jpg'
         };
 
-        // Complete Floor Concepts Data containing realistic images and features lists
+        // Complete Floor Concepts Data containing high-quality premium renders
         const floorData = {
             'B1': {
                 id: 'B1', title: "Prime Market", short: "Хүнс",
-                desc: "Дээд зэрэглэлийн чанартай, эрүүл хүнсийг нэг дороос авах боломжтой. Олон улсын болон дотоодын стандартаар бүрэн баталгаажсан хүнсний эко систем.",
-                img: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200",
-                features: ["Organic & Fresh Produce", "International Groceries", "Premium Quality"]
+                desc: "Дээд зэрэглэлийн чанартай, эрүүл хүнсийг нэг дороос авах боломжтой 'Prime Market'. Олон улсын болон дотоодын стандартаар бүрэн баталгаажсан хүнсний эко систем.",
+                img: "Gemini_Generated_Image_nzcttwnzcttwnzct.png",
+                features: ["Organic & Fresh Produce", "International Groceries", "Premium Certified Standards"]
             },
             1: {
                 id: 1, title: "Luxury Zone", short: "Гоо сайхан & Үнэт эдлэл",
                 desc: "Монголын анхны 3D LED дэлгэц болон 7.5 метрийн өндөртэй медиа орчин нь танд дэлхийн шилдэг брэндүүдийн дунд тансаг мэдрэмж өгнө.",
-                img: "28a6bcec-b4a7-4efc-b89a-71d21a0feb8f.jpg",
+                img: "Gemini_Generated_Image_s0r0v6s0r0v6s0r0.png",
                 features: ["Үнэт эдлэл, Гоо сайхан", "7.5м Интерактив орчин", "Дэлхийн нэр хүндтэй брэндүүд"]
             },
             2: {
                 id: 2, title: "Premium Fashion", short: "Хувцас, Гутал, Цүнх",
                 desc: "Олон улсад танигдсан, нэр хүндтэй брэндүүдийг борлуулах загварын тусгай давхар. Хамгийн сүүлийн үеийн трендийг эндээс.",
-                img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&q=80&w=1200",
-                features: ["Designer Clothing", "Luxury Bags & Shoes", "Personal Styling Service"]
+                img: "Gemini_Generated_Image_cg30u2cg30u2cg30.png",
+                features: ["Designer Clothing", "Luxury Bags & Shoes", "Personal Styling Lounge"]
             },
             3: {
-                id: 3, title: "Premium Fashion", short: "Хувцас, Гутал, Цүнх",
+                id: 3, title: "Premium Fashion II", short: "Хувцас, Гутал, Цүнх",
                 desc: "Олон улсын брэндүүдийн өргөтгөсөн сонголт бүхий тансаг загварын давхар.",
-                img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200",
-                features: ["Exclusive Collections", "Boutique Stores", "Trend Fashion"]
+                img: "Gemini_Generated_Image_cg30u2cg30u2cg30.png",
+                features: ["Exclusive Collections", "Boutique Stores", "Trend Fashion Showcase"]
             },
             4: {
                 id: 4, title: "Hobby & Sport Zone", short: "Спорт & Чөлөөт цаг",
-                desc: "Спорт болон чөлөөт цагаа үр дүнтэй өнгөрөөх сонирхолтой хүмүүст зориулсан. Скрин гольф, цана, уул болон загасчлалын дээд зэрэглэлийн тоног төхөөрөмж.",
-                img: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&q=80&w=1200",
-                features: ["Screen Golf Centers", "Adventure & Ski Gear", "Professional Sports Store"]
+                desc: "Спорт болон чөлөөт цагаа үр дүнтэй өнгөрөөх сонирхолтой хүмүүст зориулсан. Скрин гольф, цана, уул болон загасчлалын дээд зэрэглэлийн тоног төхөөрөмжөөс гадна үндэсний сурын VIP талбай.",
+                img: "Gemini_Generated_Image_5j8dxl5j8dxl5j8d.png",
+                features: ["Screen Golf Centers", "Adventure & Ski Gear", "Mongolian Archery Range"]
             },
             5: {
                 id: 5, title: "Kids Zone", short: "Хүүхдийн бүс",
-                desc: "Яармаг дахь хамгийн том, цогц хүүхдийн тоглоомын төв. Хүүхдийн кафе, хувцас хэрэгслийн дэлгүүрүүдтэй хүүхдэд ээлтэй аюулгүй орчин.",
-                img: "https://images.unsplash.com/photo-1566454544259-f4b94c3d758c?auto=format&fit=crop&q=80&w=1200",
-                features: ["Premium Indoor Playground", "Organic Kids Cafe", "Childcare Services"]
+                desc: "Яармаг дахь хамгийн том, цогц хүүхдийн тоглоомын төв. Хүүхдийн кафе, хувцас хэрэгслийн дэлгүүрүүдтэй хүүхдэд ээлтэй аюулгүй орчин бөгөөд Монгол гэрийн өвөрмөц тоглоомын талбайтай.",
+                img: "Gemini_Generated_Image_ipfveripfveripfv.png",
+                features: ["Premium Indoor Playground", "Organic Kids Yurt Cafe", "Childcare Services"]
             },
             6: {
                 id: 6, title: "Business & Edu Zone", short: "Оффис & Сургалт",
-                desc: "Мэдлэг, эрүүл мэнд, гоо сайханд чиглэсэн нэгдсэн үйлчилгээний бүс. Сургалтын төвүүд болон тав тухтай оффис.",
-                img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-                features: ["Premium Offices", "Education Centers", "Health & Wellness"]
+                desc: "Мэдлэг, эрүүл мэнд, гоо сайханд чиглэсэн нэгдсэн үйлчилгээний бүс. Түүхэн уран зураг, байгалийн ургамал хослуулсан тав тухтай сургалтын төвүүд болон тав тухтай оффис.",
+                img: "Gemini_Generated_Image_yl6u0xyl6u0xyl6u.png",
+                features: ["Premium Meeting Offices", "Modern Education Centers", "Health & Wellness Lounge"]
             },
             7: {
                 id: 7, title: "Restaurant", short: "Ресторан",
-                desc: "Цагийг тухтай, дурсамжтай өнгөрөөхөд зориулагдсан дээд зэрэглэлийн хоолны бүс. VIP ресторан болон олон улсын сүлжээ.",
-                img: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1200",
-                features: ["Fine Dining Experience", "International Cuisine", "City View Dining"]
+                desc: "Цагийг тухтай, дурсамжтай өнгөрөөхөд зориулагдсан дээд зэрэглэлийн хоолны бүс. Тэнгэрийн тусгалтай Монгол гэрийн тоонот дээвэртэй VIP ресторан болон олон улсын сүлжээ.",
+                img: "Gemini_Generated_Image_lebla9lebla9lebl.png",
+                features: ["Fine Dining Experience", "Mongolian Yurt Skylight", "City View Dining"]
             },
             8: {
                 id: 8, title: "Event Hall", short: "Арга хэмжээ",
-                desc: "Төрөл бүрийн бизнес, корпорацийн арга хэмжээ, хүлээн авалт зохион байгуулах орчин үеийн тоноглол бүхий дээд зэрэглэлийн танхим.",
-                img: "https://images.unsplash.com/photo-1511578314322-379fcefac3d9?auto=format&fit=crop&q=80&w=1200",
-                features: ["Corporate Events", "Luxury Banquets", "Advanced AV Tech"]
+                desc: "Төрөл бүрийн бизнес, корпорацийн арга хэмжээ, хүлээн авалт зохион байгуулах орчин үеийн тоноглол бүхий дээд зэрэглэлийн танхим. Сүрлэг тоонот шийдэл бүхий заал.",
+                img: "Gemini_Generated_Image_lebla9lebla9lebl.png",
+                features: ["Corporate Events", "Luxury Banquets", "Advanced AV & Traditional Tech"]
             }
         };
 
